@@ -19,22 +19,20 @@ export function createAbout() {
                 <div class="about-content">
                     <div class="about-text">
                         <p>
-                            3D_Engine_Developer focused on building high-performance, real-time rendering engines for the web.
-I specialize in low-level graphics programming with a strong foundation in GPU architecture, rendering pipelines, and memory management, applicable across both WebGL and WebGPU.
-My work emphasizes engine architecture, efficient resource management, shader design, and mathematical correctness, bridging the gap between theory and practical GPU execution to deliver scalable and performance-aware rendering systems.
+                            3D Engine Developer with 3+ years of experience building browser-based graphics engines and CAD applications using WebGL, WebGPU, and TypeScript. Experienced in rendering pipelines, graphics engine architecture, GLSL/WGSL shader development, Physically Based Rendering (PBR), scene graph systems, GLTF asset pipelines, and GPU optimization. Passionate about developing scalable, high-performance real-time rendering solutions for the web.
                         </p>
                         <div class="stats-grid">
                             <div class="stat-item">
                                 <span class="stat-label">EXP_LEVEL</span>
-                                <span class="stat-number">2.5+ YEARS</span>
+                                <span class="stat-number">3+ YEARS</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">PRIMARY_API</span>
-                                <span class="stat-number">WEBGL</span>
+                                <span class="stat-number">WEBGPU / WEBGL</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">ASSET_PIPELINE</span>
-                                <span class="stat-number">GLTF_2.0</span>
+                                <span class="stat-number">GLTF_2.0 / GLB</span>
                             </div>
                         </div>
                     </div>

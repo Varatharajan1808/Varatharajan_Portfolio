@@ -38,7 +38,7 @@ export function createHero(props: HeroProps) {
                         <span>Varatharajan&nbsp;T</span>
                     </h1>
                     <p class="hero-description fade-in">
-                        Specializing in high-performance rendering pipelines and GPU optimizations using WebGL and WebGPU.
+                        Specializing in browser-based CAD systems, rendering pipelines, and GPU optimizations using WebGL and WebGPU.
                     </p>
                     <div class="hero-buttons fade-in">
                         <button class="btn-primary" id="contact-btn">

@@ -21,13 +21,13 @@ export function createExperience() {
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <span class="timeline-company">Aalai Immersive Tech PVT LTD</span>
+                                <span class="timeline-company">Aalai Immersive Tech Pvt Ltd — Chennai, Tamil Nadu, India</span>
                                 <span class="timeline-date">MAY 2026 - PRESENT</span>
                             </div>
                             <span class="timeline-title">3D Engine Developer</span>
                             <ul class="experience-list">
                                 <li>Developing browser-based CAD systems using a custom WebGPU-based rendering engine.</li>
-                                <li>Implementing CAD entities, geometry processing, and interactive CAD workflows.</li>
+                                <li>Implementing CAD entities, geometry processing, and interactive modeling workflows.</li>
                                 <li>Building reusable rendering components and enhancing WebGPU-based CAD capabilities.</li>
                             </ul>
                         </div>
@@ -36,17 +36,17 @@ export function createExperience() {
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <span class="timeline-company">Hexrfactory Immersive Tech Pvt Ltd</span>
+                                <span class="timeline-company">Hexr Factory Immersive Tech Pvt Ltd</span>
                                 <span class="timeline-date">DEC 2023 - APR 2026</span>
                             </div>
-                            <span class="timeline-title">Software Developer – Web-Based 3D Graphics</span>
+                            <span class="timeline-title">Software Developer (Web-Based 3D Graphics– WebGL/WebGPU)</span>
                             <ul class="experience-list">
-                                <li><strong>Built a custom rendering engine supporting both WebGL and WebGPU</strong>, designing core systems such as Scene, Renderer, Camera, Mesh, Material, and Light with full control over draw calls and frame execution.</li>
-                                <li><strong>Implemented a scene-centric workflow with glTF import/export,</strong> enabling structured scene management, asset interchange, and validation across engines and tools.</li>
-                                <li><strong>Developed a unified material and texture system</strong>, supporting PBR parameters, normal maps, alpha transparency, environment maps, and physically accurate surface shading.</li>
-                                <li><strong>Authored and optimized GLSL and WGSL shaders</strong> for lighting, material evaluation, mesh transforms, and light interaction, with a focus on quality and GPU efficiency.</li>
-                                <li><strong>Implemented advanced WebGPU features,</strong> including PBR, Image-Based Lighting, Global Illumination, ray tracing / path tracing, and animation systems.</li>
-                                <li><strong>Owned engine tooling and interaction systems end-to-end,</strong> building transform gizmos, camera and mouse controls, scene management, and continuously improving code structure and performance.</li>
+                                <li>Developed a custom WebGL/WebGPU-based rendering engine for browser-based CAD and real-time 3D graphics applications.</li>
+                                <li>Implemented geometry systems, scene graph architecture, rendering pipelines, and Physically Based Rendering (PBR).</li>
+                                <li>Developed GLSL/WGSL shader systems, real-time lighting, camera controls, and GPU-optimized rendering techniques.</li>
+                                <li>Built and optimized GLTF/GLB asset pipelines for efficient real-time rendering.</li>
+                                <li>Improved rendering performance through efficient buffer management, render-loop optimization, and GPU resource management.</li>
+                                <li>Collaborated with cross-functional teams to develop scalable engine architecture and ensure cross-browser compatibility.</li>
                             </ul>
                         </div>
                     </div>
@@ -54,21 +54,18 @@ export function createExperience() {
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <span class="timeline-company">Hexrfactory Immersive Tech Pvt Ltd</span>
-                                <span class="timeline-date">SEP 2023 - DEC 2023</span>
+                                <span class="timeline-company">Certifications: Full Stack Web Development</span>
+                                <span class="timeline-date">APR 2023</span>
                             </div>
-                            <span class="timeline-title">Software Developer Trainee</span>
-                            <ul class="experience-list">
-                                <li>Developed a browser-based 2D graphics editor inspired by modern design tools using HTML, CSS, JavaScript, and WebGL.</li>
-                            </ul>
+                            <span class="timeline-title">QSpiders Institute, Chennai</span>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                            <span class="timeline-company">MBA in Human Resource Management (HRM)</span>
-                            <span class="timeline-date">GRADUATED 2023</span><br>
+                                <span class="timeline-company">MBA in Human Resource Management (HRM)</span>
+                                <span class="timeline-date">DEC 2021 - MAY 2023</span>
                             </div>
                             <span class="timeline-title">Alagappa University — Thoothukudi, Tamil Nadu, India</span>
                         </div>
@@ -76,13 +73,12 @@ export function createExperience() {
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                        <div class="timeline-header">
-                        <span class="timeline-company">Bachelor of Science in Mathematics</span>
-                        <span class="timeline-date">GRADUATED 2020</span><br>
+                            <div class="timeline-header">
+                                <span class="timeline-company">Bachelor of Science in Mathematics</span>
+                                <span class="timeline-date">JUL 2017 - APR 2020</span>
+                            </div>
+                            <span class="timeline-title">Kamaraj College, Manonmaniam Sundaranar University — Thoothukudi, Tamil Nadu, India</span>
                         </div>
-                        <span class="timeline-title">Kamaraj College, Manonmaniam Sundaranar University | Thoothukudi, Tamil Nadu, India</span>
-                        </div>
-
                     </div>
                 </div>
             </div>

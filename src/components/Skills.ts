@@ -17,19 +17,27 @@ export function createSkills() {
     const skills: SkillCategory[] = [
         {
             category: "GRAPHICS APIS & SHADERS",
-            tags: ["WebGL", "WebGPU", "GLSL / WGSL", "GPU Pipelines", "Render Passes", "Post-Processing"]
+            tags: ["WebGL", "WebGPU", "GLSL", "WGSL", "Rendering Pipelines", "Shader Development", "GPU Optimization"]
         },
         {
-            category: "ENGINE ARCHITECTURE",
-            tags: ["Scene Graph", "Render Loop", "Resource Management", "ECS Pattern", "Transform Hierarchies"]
+            category: "GRAPHICS PROGRAMMING & ENGINE",
+            tags: ["Scene Graphs", "Real-Time Rendering", "Physically Based Rendering (PBR)", "Lighting Models", "HDRI Environment Mapping", "Buffer Management"]
         },
         {
-            category: "3D ASSETS & MATH",
-            tags: ["glTF 2.0 Workflow", "Linear Algebra", "PBR Materials", "Computational Geometry"]
+            category: "CAD & GEOMETRY",
+            tags: ["Browser-Based CAD Systems", "Geometry Processing", "Raycasting", "Object Picking", "Interactive Editing", "Transform Gizmos"]
         },
         {
-            category: "DEVELOPMENT TOOLS",
-            tags: ["Git", "GitHub", "Blender", "Chrome DevTools", "Vite"]
+            category: "ASSET PIPELINES",
+            tags: ["GLTF 2.0", "GLB", "PBR Materials", "Texture Optimization", "Normal Maps"]
+        },
+        {
+            category: "LANGUAGES & FRAMEWORKS",
+            tags: ["TypeScript", "JavaScript", "Three.js", "HTML5", "CSS3"]
+        },
+        {
+            category: "TOOLS & BUILD SYSTEMS",
+            tags: ["Git", "GitHub", "Webpack", "Vite", "NPM", "VS Code", "Chrome DevTools", "Jira"]
         }
     ];
 

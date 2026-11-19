@@ -1,13 +1,14 @@
 # Portfolio Project: System Overview & Technical Documentation
 
 ## 1. IDENTITY_SUMMARY
-**Name:** Varatharajan
-**Role:** 3D_Engine_Developer
-**Experience:** 2+ Years in specialized graphics programming
-**Education:** 
-- MBA in Human Resource Management (Graduated 2023, Alagappa University)
-- BSc in Mathematics (Graduated 2020, Kamaraj College)
-**Location:** Thoothukudi, Tamil Nadu, India
+**Name:** T Varatharajan
+**Role:** 3D_Engine_Developer (WebGL • WebGPU • Graphics Programming • CAD Systems)
+**Experience:** 3+ Years in specialized graphics programming and browser-based CAD engines
+**Education & Certifications:** 
+- Full Stack Web Development Certification (Apr 2023, QSpiders Institute, Chennai)
+- MBA in Human Resource Management (Dec 2021 – May 2023, Alagappa University)
+- BSc in Mathematics (Jul 2017 – Apr 2020, Kamaraj College)
+**Location:** Chennai, Tamil Nadu, India
 
 ---
 
@@ -52,40 +53,49 @@ Key architectural highlights:
 
 ## 4. WORK_HISTORY
 
-### 3D Engine Developer | Aalai Immersive Tech PVT LTD
+### 3D Engine Developer | Aalai Immersive Tech Pvt Ltd — Chennai, Tamil Nadu, India
 *MAY 2026 – PRESENT*
-- **WebGPU CAD Systems:** Developing browser-based CAD systems using a custom WebGPU rendering engine.
-- **Geometric Workflows:** Implementing CAD entities, geometry processing, and interactive CAD workflows.
-- **Rendering Components:** Building reusable rendering components and enhancing WebGPU-based CAD capabilities.
+- Developing browser-based CAD systems using a custom WebGPU-based rendering engine.
+- Implementing CAD entities, geometry processing, and interactive modeling workflows.
+- Building reusable rendering components and enhancing WebGPU-based CAD capabilities.
 
 ---
 
-### Software Developer – Web-Based 3D Graphics | Hexrfactory Immersive Tech Pvt Ltd
+### Software Developer (Web-Based 3D Graphics– WebGL/WebGPU) | Hexr Factory Immersive Tech Pvt Ltd
 *DEC 2023 – APR 2026*
-- **Custom Engine Development:** Designed core systems (Scene, Renderer, Camera, Mesh) with full control over draw calls.
-- **Asset Pipeline:** Implemented glTF import/export for structured scene management.
-- **Material System:** Developed a unified system supporting PBR, normal maps, and alpha transparency.
-- **Shader Engineering:** Authored optimized GLSL/WGSL shaders for lighting and material evaluation.
-- **Advanced Features:** Implemented Image-Based Lighting (IBL), Global Illumination, and ray/path tracing in WebGPU.
-- **Tooling:** Built transform gizmos and interaction systems from the ground up.
+- Developed a custom WebGL/WebGPU-based rendering engine for browser-based CAD and real-time 3D graphics applications.
+- Implemented geometry systems, scene graph architecture, rendering pipelines, and Physically Based Rendering (PBR).
+- Developed GLSL/WGSL shader systems, real-time lighting, camera controls, and GPU-optimized rendering techniques.
+- Built and optimized GLTF/GLB asset pipelines for efficient real-time rendering.
+- Improved rendering performance through efficient buffer management, render-loop optimization, and GPU resource management.
+- Collaborated with cross-functional teams to develop scalable engine architecture and ensure cross-browser compatibility.
 
 ---
-
-### Software Developer Trainee | Hexrfactory Immersive Tech Pvt Ltd
-*SEP 2023 – DEC 2023*
-- **2D Graphics Editor:** Developed a browser-based 2D graphics editor inspired by modern design tools using HTML, CSS, JavaScript, and WebGL.
 
 ## 5. ACTIVE_PROJECTS
 
-### Custom Web-Based 3D Editor
-- **URL:** [varatha3deditor.vercel.app](https://varatha3deditor.vercel.app/)
-- **Description:** A high-performance 3D rendering engine and editor written from scratch.
+### 1. Vara3D Graphics Engine
+- **GitHub:** [Varatharajan1808/Vara3D-Graphics-Engine](https://github.com/Varatharajan1808/Vara3D-Graphics-Engine)
+- **Live Demo:** [varatha3deditor.vercel.app](https://varatha3deditor.vercel.app/)
+- **Description:** Browser-based 3D graphics engine and visual editor built from scratch using TypeScript and WebGL.
 - **Key Features:**
-    - Full PBR pipeline with multi-light support.
-    - GlTF 2.0 asset workflow.
-    - Hierarchical scene system with frustum culling.
-    - Professional-grade transform gizmos and editor tooling.
-- **Tech Stack:** TypeScript, WebGL, JavaScript.
+    - Physically Based Rendering (PBR) and GLSL shader systems.
+    - Full GLTF 2.0 / GLB asset pipeline.
+    - Scene hierarchy, transform gizmos, material editing.
+    - Frustum culling, buffer management, GPU resource optimization.
+- **Tech Stack:** TypeScript, WebGL, GLSL, glTF 2.0 / GLB.
+
+### 2. LuminaSphere
+- **GitHub:** [Varatharajan1808/luminasphere-webgl](https://github.com/Varatharajan1808/luminasphere-webgl)
+- **Live Demo:** [luminasphere-webgl.vercel.app](https://luminasphere-webgl.vercel.app/)
+- **Description:** Interactive WebGL-based 3D orb showcasing shader-driven vertex displacement, dynamic palettes, and responsive interactions.
+- **Tech Stack:** TypeScript, WebGL, GLSL, gl-matrix.
+
+### 3. Portfolio Website
+- **GitHub:** [Varatharajan1808/Varatharajan_Portfolio](https://github.com/Varatharajan1808/Varatharajan_Portfolio)
+- **Live Demo:** [varatharajanportfolio.vercel.app](https://varatharajanportfolio.vercel.app/)
+- **Description:** Personal portfolio built with TypeScript and a custom component architecture with reusable UI components and state management.
+- **Tech Stack:** TypeScript, HTML5, CSS3, Vite.
 
 ---
 
@@ -135,5 +145,6 @@ npm run build
 
 ## 8. CONTACT_PROTOCOLS
 - **GitHub:** [Varatharajan1808](https://github.com/Varatharajan1808)
+- **LinkedIn:** [t-varatharajan](https://www.linkedin.com/in/t-varatharajan)
 - **Email:** ciazvanish2000@gmail.com
 - **Live Site:** [varatharajanportfolio.vercel.app](https://varatharajanportfolio.vercel.app/)

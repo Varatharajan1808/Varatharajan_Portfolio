@@ -83,11 +83,12 @@ Open `http://localhost:5173` and you're good.
 
 ## About Me
 
-**Varatharajan** — 3D_Engine_Developer specializing in browser-based graphics engines, WebGL, WebGPU, rendering pipelines, shader programming, and real-time rendering.
+**T Varatharajan** — 3D Engine Developer specializing in browser-based CAD systems, WebGL, WebGPU, rendering pipelines, GLSL/WGSL shader development, and real-time rendering.
 
 I enjoy building software close to the metal and understanding how graphics systems work under the hood. Rather than relying on abstractions, I like exploring the architecture behind rendering engines and modern GPU programming.
 
 - GitHub: https://github.com/Varatharajan1808
+- LinkedIn: https://www.linkedin.com/in/t-varatharajan
 - Email: ciazvanish2000@gmail.com
 
 ## License

@@ -8,6 +8,7 @@ import img5 from '../assets/projects/editor_5.png';
 import img6 from '../assets/projects/editor_6.png';
 import ProjectVideo from '../assets/projects/ProjectVideo.mp4';
 import luminasphere from '../assets/projects/luminasphere.mp4';
+import portfolioThumb from '../assets/projects/portfolio_thumb.png';
 
 const projectImages = [img1, img2, img3, img4, img5, img6];
 
@@ -18,6 +19,7 @@ interface Project {
     description: string;
     tech: string[];
     link: string;
+    github?: string;
     video?: string;
     image?: string;
     isActive: boolean;
@@ -32,22 +34,33 @@ export function createProjects() {
 
     const projects: Project[] = [
         {
-            id: 'project-card-gltf',
-            title: "Custom Web-Based 3D Editor",
-            description: `Architected a high-performance web-based 3D rendering engine from scratch using JavaScript and TypeScript, featuring a full Physically Based Rendering (PBR) pipeline with multi-light support.
-            Implemented a complete glTF 2.0 asset workflow and hierarchical scene system with frustum culling, transform gizmos, and professional-grade real-time editor tooling.`,
-            tech: ["Typescript", "Javascript", "WebGL", "GLSL"],
+            id: 'project-vara3d',
+            title: "Vara3D Graphics Engine",
+            description: "Developed a browser-based 3D graphics engine and visual editor from scratch using TypeScript and WebGL. Designed and implemented rendering pipelines, scene graph architecture, GLSL shader systems, and Physically Based Rendering (PBR). Built a complete GLTF/GLB asset pipeline and real-time editor tooling with frustum culling GPU optimization.",
+            tech: ["TypeScript", "WebGL", "GLSL", "glTF 2.0 / GLB", "PBR"],
             link: "https://varatha3deditor.vercel.app/",
+            github: "https://github.com/Varatharajan1808/Vara3D-Graphics-Engine",
             video: ProjectVideo,
             isActive: true
         },
         {
             id: 'project-luminasphere',
-            title: "Luminasphere",
-            description: "A high-performance interactive 3D orb built using WebGL and custom GLSL shaders, featuring dynamic vertex displacement and fluid color transitions. This project demonstrates advanced 3D rendering techniques with a focus on smooth, responsive user interactions.",
-            tech: ["TypeScript", "Javascript", "WebGL", "GLSL"],
+            title: "LuminaSphere",
+            description: "An interactive WebGL-based 3D orb developed using TypeScript, custom GLSL shaders, and gl-matrix. Features shader-driven vertex displacement animations, dynamic color palettes, responsive mouse/touch interactions, and custom icosahedron geometry.",
+            tech: ["TypeScript", "WebGL", "GLSL", "gl-matrix"],
             link: "https://luminasphere-webgl.vercel.app/",
+            github: "https://github.com/Varatharajan1808/luminasphere-webgl",
             video: luminasphere,
+            isActive: false
+        },
+        {
+            id: 'project-portfolio',
+            title: "Portfolio Website",
+            description: "Personal developer portfolio built with TypeScript and a custom component architecture with reusable UI components and reactive state management. Implemented responsive layouts, CSS 3D viewport perspectives, and interactive telemetry controls.",
+            tech: ["TypeScript", "HTML5", "CSS3", "Vite", "Component System"],
+            link: "https://varatharajanportfolio.vercel.app/",
+            github: "https://github.com/Varatharajan1808/Varatharajan_Portfolio",
+            image: portfolioThumb,
             isActive: false
         }
     ];
@@ -63,12 +76,10 @@ export function createProjects() {
 
                 <div class="projects-grid">
                     ${projects.map(project => `
-                        <a
+                        <div
                             class="project-card ${project.isActive ? 'highlighted' : ''}"
                             id="${project.id}"
-                            href="${project.link}"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            data-link="${project.link}"
                             title="Open Live Demo"
                         >
                             <div class="project-image">
@@ -90,15 +101,22 @@ export function createProjects() {
                                     <span class="stat-tag">60 FPS</span>
                                 </div>
                                 ` : ''}
-                                <div class="project-overlay-cta">
+                                <div class="project-overlay-cta" title="Launch Demo">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                 </div>
                             </div>
                             <div class="project-content">
                                 <div class="flex-between">
                                     <h3>${project.title}</h3>
-                                    <div class="live-link-icon">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    <div class="project-links">
+                                        ${project.github ? `
+                                            <a href="${project.github}" target="_blank" rel="noopener noreferrer" title="View Source on GitHub">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                            </a>
+                                        ` : ''}
+                                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" title="Open Live Demo">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        </a>
                                     </div>
                                 </div>
                                 <p>${project.description}</p>
@@ -106,7 +124,7 @@ export function createProjects() {
                                     ${project.tech.map(t => `<span>${t}</span>`).join('')}
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     `).join('')}
                 </div>
 
@@ -126,7 +144,17 @@ export function createProjects() {
         `;
     }
 
-    function attachEvents(): void { }
+    function attachEvents(): void {
+        const cards = element.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const target = e.target as HTMLElement;
+                if (target.closest('a')) return;
+                const link = (card as HTMLElement).dataset.link;
+                if (link) window.open(link, '_blank', 'noopener,noreferrer');
+            });
+        });
+    }
 
     function afterMount(): void { }
 
