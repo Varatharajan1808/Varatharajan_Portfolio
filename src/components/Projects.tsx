@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { PROJECTS, type Project, type ProjectImage } from '../data/portfolioData';
 import { GithubIcon } from './Icons';
 import {
@@ -9,7 +10,8 @@ import {
   Play,
   X,
   Images,
-  Video
+  Video,
+  ArrowLeft
 } from 'lucide-react';
 
 export const Projects: React.FC = () => {
@@ -82,6 +84,18 @@ export const Projects: React.FC = () => {
     }));
   }, [modalState.project]);
 
+  // Lock body scroll when modal is active
+  useEffect(() => {
+    if (modalState.isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [modalState.isOpen]);
+
   // Keyboard navigation for lightbox
   useEffect(() => {
     if (!modalState.isOpen) return;
@@ -133,8 +147,23 @@ export const Projects: React.FC = () => {
                     onClick={() => openLightbox(project, currentIndex, false)}
                   />
 
+                  {/* Top-left "Back to Cover" button when an inner screenshot is selected */}
+                  {currentIndex > 0 && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveIndex(project.id, 0);
+                      }}
+                      className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-slate-950/90 backdrop-blur-md border border-cyan-500/60 text-[11px] font-semibold text-cyan-300 hover:text-white hover:bg-cyan-500/30 transition-all flex items-center gap-1.5 cursor-pointer shadow-lg z-10"
+                      title="Back to first screenshot / cover"
+                    >
+                      <ArrowLeft className="w-3.5 h-3.5" />
+                      <span>Back to Cover</span>
+                    </button>
+                  )}
+
                   {/* Top-right Status / Video Pill */}
-                  <div className="absolute top-3 right-3 flex items-center gap-2">
+                  <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
                     {project.videoUrl && (
                       <button
                         onClick={(e) => {
@@ -154,19 +183,19 @@ export const Projects: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Next / Prev Navigation Arrows (if multiple screenshots) */}
+                  {/* Next / Prev Navigation Arrows */}
                   {project.gallery.length > 1 && (
                     <>
                       <button
                         onClick={(e) => handlePrevImage(e, project)}
-                        className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-950/75 hover:bg-cyan-500 hover:text-slate-950 text-white flex items-center justify-center transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 border border-slate-700/80 shadow-lg cursor-pointer"
+                        className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-950/85 hover:bg-cyan-500 hover:text-slate-950 text-white flex items-center justify-center transition-all opacity-90 group-hover:opacity-100 border border-slate-700 shadow-lg cursor-pointer z-10"
                         title="Previous screenshot"
                       >
                         <ChevronLeft className="w-4 h-4" />
                       </button>
                       <button
                         onClick={(e) => handleNextImage(e, project)}
-                        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-950/75 hover:bg-cyan-500 hover:text-slate-950 text-white flex items-center justify-center transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 border border-slate-700/80 shadow-lg cursor-pointer"
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-950/85 hover:bg-cyan-500 hover:text-slate-950 text-white flex items-center justify-center transition-all opacity-90 group-hover:opacity-100 border border-slate-700 shadow-lg cursor-pointer z-10"
                         title="Next screenshot"
                       >
                         <ChevronRight className="w-4 h-4" />
@@ -198,7 +227,7 @@ export const Projects: React.FC = () => {
                         onClick={() => setActiveIndex(project.id, idx)}
                         className={`relative w-14 h-9 sm:w-16 sm:h-10 rounded-lg overflow-hidden border transition-all shrink-0 cursor-pointer ${
                           idx === currentIndex
-                            ? 'border-cyan-400 ring-2 ring-cyan-500/30 scale-105'
+                            ? 'border-cyan-400 ring-2 ring-cyan-500/40 scale-105'
                             : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'
                         }`}
                         title={img.caption}
@@ -279,130 +308,156 @@ export const Projects: React.FC = () => {
         })}
       </div>
 
-      {/* Lightbox / Video Modal */}
-      {modalState.isOpen && modalState.project && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-in fade-in duration-200"
-          onClick={closeLightbox}
-        >
-          {/* Modal Header */}
+      {/* Fullscreen Lightbox / Video Modal (Mounted directly on document.body above everything) */}
+      {modalState.isOpen && modalState.project && typeof document !== 'undefined' &&
+        createPortal(
           <div
-            className="flex items-center justify-between max-w-6xl w-full mx-auto pb-4 border-b border-slate-800/80"
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            className="fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-6 animate-in fade-in duration-200"
+            onClick={closeLightbox}
           >
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white">
-                {modalState.project.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-cyan-400 font-medium">
-                {modalState.isVideo
-                  ? 'Video Recording Demonstration'
-                  : modalState.project.gallery[modalState.currentIndex]?.caption || 'Reference Screenshot'}
-              </p>
+            {/* Modal Header: Clear "Back to Projects" button + Info + "Close" */}
+            <div
+              className="flex items-center justify-between max-w-6xl w-full mx-auto pb-3 border-b border-slate-800/80 gap-3"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Prominent Back Button */}
+              <button
+                onClick={closeLightbox}
+                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold text-xs sm:text-sm border border-slate-700 hover:border-cyan-400 transition-all shadow-lg cursor-pointer group"
+                title="Go back to portfolio (Esc)"
+              >
+                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
+                <span>Back to Projects</span>
+              </button>
+
+              {/* Title & Caption */}
+              <div className="text-center truncate px-2 hidden sm:block">
+                <h3 className="text-base sm:text-lg font-bold text-white truncate">
+                  {modalState.project.title}
+                </h3>
+                <p className="text-xs text-cyan-400 font-medium truncate">
+                  {modalState.isVideo
+                    ? 'Video Recording Demonstration'
+                    : modalState.project.gallery[modalState.currentIndex]?.caption || 'Reference Screenshot'}
+                </p>
+              </div>
+
+              {/* Top-Right Close Button */}
+              <button
+                onClick={closeLightbox}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900/90 hover:bg-rose-500/20 text-slate-300 hover:text-rose-300 hover:border-rose-500/40 text-xs sm:text-sm font-semibold transition-all border border-slate-700 cursor-pointer"
+                title="Close modal (Esc)"
+              >
+                <span className="hidden sm:inline">Close</span>
+                <X className="w-4 h-4" />
+              </button>
             </div>
 
-            <button
-              onClick={closeLightbox}
-              className="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-slate-700 cursor-pointer"
-              title="Close modal (Esc)"
+            {/* Modal Center Viewport */}
+            <div
+              className="relative flex-1 flex items-center justify-center max-w-6xl w-full mx-auto my-3 overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Modal Center Viewport */}
-          <div
-            className="relative flex-1 flex items-center justify-center max-w-6xl w-full mx-auto my-4 overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {modalState.isVideo && modalState.project.videoUrl ? (
-              <video
-                src={modalState.project.videoUrl}
-                controls
-                autoPlay
-                className="max-h-[70vh] w-auto max-w-full rounded-xl border border-slate-800 shadow-2xl bg-black"
-              />
-            ) : (
-              <img
-                src={modalState.project.gallery[modalState.currentIndex]?.src}
-                alt={modalState.project.gallery[modalState.currentIndex]?.caption}
-                className="max-h-[72vh] w-auto max-w-full object-contain rounded-xl border border-slate-800 shadow-2xl"
-              />
-            )}
-
-            {/* Left / Right Nav inside Modal (for screenshots) */}
-            {!modalState.isVideo && modalState.project.gallery.length > 1 && (
-              <>
-                <button
-                  onClick={prevModalItem}
-                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 text-white flex items-center justify-center transition-all border border-slate-700 shadow-xl cursor-pointer"
-                  title="Previous image (Left Arrow)"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-                <button
-                  onClick={nextModalItem}
-                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 text-white flex items-center justify-center transition-all border border-slate-700 shadow-xl cursor-pointer"
-                  title="Next image (Right Arrow)"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </button>
-              </>
-            )}
-          </div>
-
-          {/* Modal Bottom Thumbnail Bar */}
-          <div
-            className="flex items-center justify-center gap-2 max-w-6xl w-full mx-auto pt-2 overflow-x-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {modalState.project.gallery.map((img, idx) => (
-              <button
-                key={img.src}
-                onClick={() =>
-                  setModalState((prev) => ({
-                    ...prev,
-                    currentIndex: idx,
-                    isVideo: false
-                  }))
-                }
-                className={`w-14 h-9 sm:w-20 sm:h-12 rounded-lg overflow-hidden border transition-all shrink-0 cursor-pointer ${
-                  !modalState.isVideo && idx === modalState.currentIndex
-                    ? 'border-cyan-400 ring-2 ring-cyan-500/40 scale-105'
-                    : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'
-                }`}
-              >
-                <img
-                  src={img.src}
-                  alt={img.caption}
-                  className="w-full h-full object-cover"
+              {modalState.isVideo && modalState.project.videoUrl ? (
+                <video
+                  src={modalState.project.videoUrl}
+                  controls
+                  autoPlay
+                  className="max-h-[68vh] w-auto max-w-full rounded-xl border border-slate-800 shadow-2xl bg-black"
                 />
-              </button>
-            ))}
+              ) : (
+                <img
+                  src={modalState.project.gallery[modalState.currentIndex]?.src}
+                  alt={modalState.project.gallery[modalState.currentIndex]?.caption}
+                  className="max-h-[70vh] w-auto max-w-full object-contain rounded-xl border border-slate-800 shadow-2xl"
+                />
+              )}
 
-            {modalState.project.videoUrl && (
+              {/* Left / Right Nav inside Modal (for screenshots) */}
+              {!modalState.isVideo && modalState.project.gallery.length > 1 && (
+                <>
+                  <button
+                    onClick={prevModalItem}
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 text-white flex items-center justify-center transition-all border border-slate-700 shadow-xl cursor-pointer"
+                    title="Previous image (Left Arrow)"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextModalItem}
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 text-white flex items-center justify-center transition-all border border-slate-700 shadow-xl cursor-pointer"
+                    title="Next image (Right Arrow)"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Modal Bottom Thumbnail Bar + Mobile Back Action */}
+            <div
+              className="flex flex-col items-center gap-2.5 max-w-6xl w-full mx-auto pt-1"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-center gap-2 overflow-x-auto w-full py-1">
+                {modalState.project.gallery.map((img, idx) => (
+                  <button
+                    key={img.src}
+                    onClick={() =>
+                      setModalState((prev) => ({
+                        ...prev,
+                        currentIndex: idx,
+                        isVideo: false
+                      }))
+                    }
+                    className={`w-14 h-9 sm:w-20 sm:h-12 rounded-lg overflow-hidden border transition-all shrink-0 cursor-pointer ${
+                      !modalState.isVideo && idx === modalState.currentIndex
+                        ? 'border-cyan-400 ring-2 ring-cyan-500/40 scale-105'
+                        : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'
+                    }`}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.caption}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+
+                {modalState.project.videoUrl && (
+                  <button
+                    onClick={() =>
+                      setModalState((prev) => ({
+                        ...prev,
+                        isVideo: true
+                      }))
+                    }
+                    className={`w-14 h-9 sm:w-20 sm:h-12 rounded-lg overflow-hidden border bg-slate-900 flex flex-col items-center justify-center gap-1 transition-all shrink-0 cursor-pointer ${
+                      modalState.isVideo
+                        ? 'border-cyan-400 ring-2 ring-cyan-500/40 scale-105 text-cyan-400'
+                        : 'border-slate-800 text-slate-400 opacity-60 hover:opacity-100 hover:border-slate-600'
+                    }`}
+                  >
+                    <Play className="w-4 h-4 fill-current" />
+                    <span className="text-[10px] font-bold">Video</span>
+                  </button>
+                )}
+              </div>
+
+              {/* Bottom Quick Return Button (extra helpful on mobile) */}
               <button
-                onClick={() =>
-                  setModalState((prev) => ({
-                    ...prev,
-                    isVideo: true
-                  }))
-                }
-                className={`w-14 h-9 sm:w-20 sm:h-12 rounded-lg overflow-hidden border bg-slate-900 flex flex-col items-center justify-center gap-1 transition-all shrink-0 cursor-pointer ${
-                  modalState.isVideo
-                    ? 'border-cyan-400 ring-2 ring-cyan-500/40 scale-105 text-cyan-400'
-                    : 'border-slate-800 text-slate-400 opacity-60 hover:opacity-100 hover:border-slate-600'
-                }`}
+                onClick={closeLightbox}
+                className="sm:hidden px-4 py-1.5 rounded-full bg-slate-800 text-cyan-300 border border-cyan-500/30 text-xs font-semibold flex items-center gap-1.5 cursor-pointer shadow-md"
               >
-                <Play className="w-4 h-4 fill-current" />
-                <span className="text-[10px] font-bold">Video</span>
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Back to Portfolio</span>
               </button>
-            )}
-          </div>
-        </div>
-      )}
+            </div>
+          </div>,
+          document.body
+        )}
     </section>
   );
 };
