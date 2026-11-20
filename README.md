@@ -4,6 +4,7 @@
 [![Tech Stack](https://img.shields.io/badge/Stack-React_19_•_TypeScript_•_Three.js_•_Tailwind_v4-0ea5e9?style=for-the-badge)](https://varatharajanportfolio.vercel.app)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-varatharajan3d-0284c7?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/varatharajan3d/)
 [![GitHub](https://img.shields.io/badge/GitHub-Varatharajan1808-1e293b?style=for-the-badge&logo=github)](https://github.com/Varatharajan1808)
+[![Instagram](https://img.shields.io/badge/Instagram-vanish.vanish-E4405F?style=for-the-badge&logo=instagram)](https://www.instagram.com/vanish.vanish/)
 
 > **WebGL · WebGPU · GLSL / WGSL Shaders · CAD & BIM Systems**  
 > Specialized in engineering custom browser-based rendering engines, WebGPU compute pipelines, and interactive 3D tools from scratch.
@@ -132,6 +133,7 @@ npm run lint
 - **Portfolio:** [https://varatharajanportfolio.vercel.app](https://varatharajanportfolio.vercel.app)
 - **LinkedIn:** [linkedin.com/in/varatharajan3d](https://www.linkedin.com/in/varatharajan3d/)
 - **GitHub:** [github.com/Varatharajan1808](https://github.com/Varatharajan1808)
+- **Instagram:** [instagram.com/vanish.vanish](https://www.instagram.com/vanish.vanish/)
 - **Email:** [ciazvanish2000@gmail.com](mailto:ciazvanish2000@gmail.com)
 - **WhatsApp:** [+91 9659309280](https://wa.me/919659309280)
 

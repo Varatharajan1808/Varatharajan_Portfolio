@@ -36,7 +36,7 @@ export const PERSONAL_INFO = {
   whatsapp: "https://wa.me/919659309280",
   linkedin: "https://www.linkedin.com/in/varatharajan3d/",
   github: "https://github.com/Varatharajan1808",
-  instagram: "https://instagram.com/",
+  instagram: "https://www.instagram.com/vanish.vanish/",
   resumeUrl: "/assets/resume.pdf",
   profilePhoto: "/assets/varatharajan-profile.jpg",
 };
