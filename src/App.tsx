@@ -1,5 +1,6 @@
 import React from 'react';
 import { Background3D } from './components/Background3D';
+import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -12,6 +13,9 @@ import { Footer } from './components/Footer';
 export const App: React.FC = () => {
   return (
     <div className="relative min-h-screen bg-[#080c14] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
+      {/* Interactive 3D CAD Custom Cursor */}
+      <CustomCursor />
+
       {/* 3D Background Canvas */}
       <Background3D />
 
