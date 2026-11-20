@@ -8,7 +8,7 @@ export const About: React.FC = () => {
         {/* Left: About Details (7 cols) */}
         <div className="lg:col-span-7 space-y-5">
           <div className="text-xs font-semibold text-cyan-400 tracking-wider uppercase">
-            // About Me
+            {'// About Me'}
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">

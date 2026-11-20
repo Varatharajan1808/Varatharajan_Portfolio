@@ -6,7 +6,7 @@ export const Skills: React.FC = () => {
     <section id="skills" className="py-20 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto border-t border-slate-800/60">
       <div className="mb-12">
         <div className="text-xs font-semibold text-cyan-400 tracking-wider uppercase mb-1">
-          // Technical Stack & Expertise
+          {'// Technical Stack & Expertise'}
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
           Skills & Specialized Competencies
@@ -17,9 +17,9 @@ export const Skills: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {SKILL_GROUPS.map((group, idx) => (
+        {SKILL_GROUPS.map((group) => (
           <div
-            key={idx}
+            key={group.category}
             className="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 transition-all flex flex-col justify-between space-y-4 group"
           >
             <div>

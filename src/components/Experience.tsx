@@ -11,7 +11,7 @@ export const Experience: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
         <div>
           <div className="text-xs font-semibold text-cyan-400 tracking-wider uppercase mb-1">
-            // Career & Background
+            {'// Career & Background'}
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Work Experience & Education
@@ -49,7 +49,7 @@ export const Experience: React.FC = () => {
         <div className="space-y-6">
           {EXPERIENCES.map((exp, idx) => (
             <div
-              key={idx}
+              key={`${exp.role}-${exp.company}`}
               className="p-6 sm:p-7 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 transition-all space-y-3"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -83,8 +83,8 @@ export const Experience: React.FC = () => {
               </p>
 
               <ul className="space-y-1.5 pt-2">
-                {exp.points.map((pt, pIdx) => (
-                  <li key={pIdx} className="text-xs sm:text-sm text-slate-400 flex items-start gap-2">
+                {exp.points.map((pt) => (
+                  <li key={pt} className="text-xs sm:text-sm text-slate-400 flex items-start gap-2">
                     <span className="text-cyan-400 mt-1">•</span>
                     <span>{pt}</span>
                   </li>
@@ -95,9 +95,9 @@ export const Experience: React.FC = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {EDUCATION.map((edu, idx) => (
+          {EDUCATION.map((edu) => (
             <div
-              key={idx}
+              key={`${edu.degree}-${edu.institution}`}
               className="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 space-y-3 flex flex-col justify-between"
             >
               <div>

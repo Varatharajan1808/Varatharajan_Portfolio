@@ -102,7 +102,7 @@ export const Contact: React.FC = () => {
     <section id="contact" className="py-20 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto border-t border-slate-800/60">
       <div className="mb-12">
         <div className="text-xs font-semibold text-cyan-400 tracking-wider uppercase mb-1">
-          // Contact & Direct Channels
+          {'// Contact & Direct Channels'}
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
           Let's Connect & Work Together
